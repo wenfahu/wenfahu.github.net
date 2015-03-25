@@ -219,10 +219,10 @@
 					element.className = 'element';
 					element.style.backgroundColor = 'rgba(0,127,127,' + ( Math.random() * 0.5 + 0.25 ) + ')';
 
-					var number = document.createElement( 'div' );
-					number.className = 'number';
-					number.textContent = i + 1;
-					element.appendChild( number );
+					//var number = document.createElement( 'div' );
+					//number.className = 'number';
+					//number.textContent = i + 1;
+					//element.appendChild( number );
 
 					var symbol = document.createElement( 'div' );
 					symbol.className = 'symbol';
@@ -252,8 +252,8 @@
 					var object = objects[ i ];
 
 					var object = new THREE.Object3D();
-					object.position.x = ( item[ 5 ] * 160 ) - 1540;
-					object.position.y = - ( item[ 6 ] * 200 ) + 1100;
+					object.position.x = ( item[ 5 ] * 160 ) - 800;
+					object.position.y = - ( item[ 6 ] * 200 ) + 800;
 
 					targets.table.push( object );
 
@@ -294,12 +294,12 @@
 
 					var object = objects[ i ];
 
-					var phi = i * 0.175 + Math.PI;
+					var phi = i * 0.275 + Math.PI;
 
 					var object = new THREE.Object3D();
 
 					object.position.x = 600 * Math.sin( phi );
-					object.position.y = - ( i * 30 ) + 150;
+					object.position.y = - ( i * 20 ) + 100;
 					object.position.z = 600 * Math.cos( phi );
 
 					vector.copy( object.position );
@@ -322,7 +322,7 @@
 
 					object.position.x = ( ( i % 5 ) * 400 ) - 800;
 					object.position.y = ( - ( Math.floor( i / 5 ) % 5 ) * 400 ) + 800;
-					object.position.z = ( Math.floor( i / 25 ) ) * 1000 - 2000;
+					object.position.z = ( Math.floor( i / 25 ) ) * 1000 - 800;
 
 					targets.grid.push( object );
 
