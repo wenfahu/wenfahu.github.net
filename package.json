@@ -1,0 +1,12 @@
+{
+    "name": "",
+    "version": "0.0.1",
+    "dependencies":{
+	"gulp": "latest",
+	"gulp-less": "latest",
+	"gulp-minify-css": "latest",
+	"gulp-rename": "latest",
+	"browser-sync": "latest"
+	}
+}
+

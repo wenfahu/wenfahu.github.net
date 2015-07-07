@@ -1,435 +1,262 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-		<title>three.js css3d - periodic table</title>
-		<style>
-			html, body {
-				height: 100%;
-			}
+<html lang="en">
 
-			body {
-				background-color: #000000;
-				margin: 0;
-				font-family: Arial;
-				overflow: hidden;
-			}
+<head>
 
-			a {
-				color: #ffffff;
-			}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-			#info {
-				position: absolute;
-				width: 100%;
-				color: #ffffff;
-				padding: 5px;
-				font-family: Monospace;
-				font-size: 13px;
-				font-weight: bold;
-				text-align: center;
-			}
+    <title>Creative - Start Bootstrap Theme</title>
 
-			#comment{
-			    position:absolute;
-			    top:20px;
-			    right:20px;
-			    max-width:120px;
-			    max-height:150;
-			    text-align: center;
-			    color:#fff;
-			    background: rgba(0,127,127,0.5);
-			}
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
 
-			._name {
-			    margin:15px;
-			    font-size:14px;
-			}
+    <!-- Custom Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" type="text/css">
 
-			._detail{
-			    font-size:12px;
-			    margin:10px;
-			    padding-bottom:20px;
-			}
+    <!-- Plugin CSS -->
+    <link rel="stylesheet" href="css/animate.min.css" type="text/css">
 
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/creative.css" type="text/css">
 
-			#menu {
-				position: absolute;
-				bottom: 20px;
-				width: 100%;
-				text-align: center;
-			}
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
-			.element {
-				width: 140px;
-				height: 180px;
-				box-shadow: 0px 0px 20px rgba(0,255,255,0.5);
-				border: 1px solid rgba(127,255,255,0.25);
-				cursor: default;
-			}
+</head>
 
-			.element:hover {
-				box-shadow: 0px 0px 20px rgba(0,255,255,0.75);
-				border: 1px solid rgba(127,255,255,0.75);
-			}
+<body id="page-top">
 
-				.element .number {
-					position: absolute;
-					top: 20px;
-					right: 20px;
-					font-size: 20px;
-					color: rgba(127,255,255,0.75);
-				}
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">Hacker Space</a>
+            </div>
 
-				.element .symbol {
-					position: absolute;
-					top: 40px;
-					width: 100%;
-					font-size: 20px;
-					text-align: center;
-					color: rgba(255,255,255,0.75);
-					font-weight: bold;
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a class="page-scroll" href="#about">What's New</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#services">Blogs</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#portfolio">Gallary</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#contact">About Me</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
 
-					-webkit-filter: drop-shadow(0px 0px 20px rgba(0,255,255,0.95));
-					-moz-filter: drop-shadow(0px 0px 20px rgba(0,255,255,0.95));
-					-o-filter: drop-shadow(0px 0px 20px rgba(0,255,255,0.95));
-					-ms-filter: drop-shadow(0px 0px 20px rgba(0,255,255,0.95));
-					filter: drop-shadow(0px 0px 20px rgba(0,255,255,0.95));
-				}
+    <header>
+        <div class="header-content">
+            <div class="header-content-inner">
+                <h1>Wooo!!!</h1>
+                <hr>
+                <p>Welcome! Enjoy the innovation and creativity of tech!</p>
+                <a href="#about" class="btn btn-primary btn-xl page-scroll">Explore</a>
+            </div>
+        </div>
+    </header>
 
-				.element .details {
-					position: absolute;
-					top: 80px;
-					width: 100%;
-					font-size: 18px;
-					text-align: center;
-					color: rgba(127,255,255,0.75);
-				}
+    <section class="bg-primary" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+		    <h2 class="section-heading">Google’s taking on Uber and Lyft with RideWith, a Waze-powered carpooling service </h2>
+                    <hr class="light">
+		    <p class="text-faded">Given search giant Google’s mapping expertise, perhaps the only thing surprising about its rumored carpooling business is that it didn’t launch one sooner. According to multiple reports, Google’s set to launch an app in Israel, RideWith, that lets drivers collect metered payment from passengers traveling in the same direction.  </p>
+                    <a href="#" class="btn btn-default btn-xl">Find More!</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-			button {
-				color: rgba(127,255,255,0.75);
-				background: transparent;
-				outline: 1px solid rgba(127,255,255,0.75);
-				border: 0px;
-				padding: 5px 10px;
-				cursor: pointer;
-			}
-			button:hover {
-				background-color: rgba(0,255,255,0.5);
-			}
-			button:active {
-				color: #000000;
-				background-color: rgba(0,255,255,0.75);
-			}
-		</style>
-	</head>
-	<body>
-		<script type="text/javascript">
-		  var _gaq = _gaq || [];
-		  _gaq.push(['_setAccount', 'UA-86951-7']);
-		  _gaq.push(['_trackPageview']);
+    <section id="services">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Blogs</h2>
+                    <hr class="primary">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+			<a href = "http://marvl.infotech.monash.edu/webcola/#"><h3>cola.js</h3></a>
+                        <p class="text-muted">cola.js (A.K.A. "WebCoLa") is an open-source JavaScript library for arranging your HTML5 documents and diagrams using constraint-based optimization techniques.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+			<a href = "http://static.googleusercontent.com/media/www.google.com/en/us/selfdrivingcar/files/reports/report-0615.pdf"><h3>Google Self-Driving Car Project</h3></a>
+			<p class="text-muted">This month we kicked off the next big phase of the project: testing our prototype vehicles on public streets.
+			We’re still all about learning; now we want to know how the community perceives and interacts with these
+			vehicles, and what operational challenges are unique to a fully self-driving vehicle. We’re continuing to test
+			with our Lexus vehicles and we’ll gradually introduce more prototypes to the streets over the coming months</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+			<a href = "http://www.engadget.com/2015/07/06/predator-mortal-kombat-x-trailer/"><h3>Check out Predator's gory moves in 'Mortal Kombat X'</h3></a>
+                        <p class="text-muted">Predator -- the Invisible Eviscerator; the Brutalizer in the Brush -- creeps into Mortal Kombat X tomorrow, July 7th, for anyone who owns the $30 Kombat Pack as well as the full game. For everyone else, the Dreadlocked Destroyer will be available to buy as a standalone character on July 14th.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+			<a href = "http://www.engadget.com/2015/07/06/kuratas-versus-megabot-robot-duel/"><h3>Giant Japanese robot will fistfight America's MegaBot</h3></a>
+                        <p class="text-muted">et set for a live-action version of Transformers, as the company behind giant Japanese robot Kuratas has accepted a duel challenge from upstart US challenger MegaBot. </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-		  (function() {
-		    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-		    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-		    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
-		  })();
-		</script>
-
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r71/three.min.js"></script>
-		<script src="js/tween.js"></script>
-		<script src="js/TrackballControls.js"></script>
-		<script src="js/CSS3DRenderer.js"></script>
-
-		<div id="container"></div>
-		<div id="info"><a href="http://threejs.org" target="_blank">three.js css3d</a> - periodic table. <a href="https://plus.google.com/113862800338869870683/posts/QcFk5HrWran" target="_blank">info</a>.</div>
-		<div id="comment">
-		    <div class = "_name">微信公众号</div>
-		    <div class = "_detail">
-			阅读总数</br>
-			点赞总数</br>
-			点赞率</br>
-			总排名
+    <section class="no-padding" id="portfolio">
+        <div class="container-fluid">
+	    <div class="row no-gutter">
+		<!--
+                <div class="col-lg-4 col-sm-6">
+		    -->
+		<div class = "col-xs-4">
+		    <div class = "row">
+			    <a href="#" class="portfolio-box">
+				<img src="img/portfolio/three.png" class="img-responsive" alt="">
+				    <div class="portfolio-box-caption">
+					<div class="portfolio-box-caption-content">
+					    <div class="project-category text-faded">
+						Data Visualization, Web GL
+					    </div>
+					    <div class="project-name">
+						Tsinghua Weixin Statistics
+					    </div>
+					</div>
+				    </div>
+			    </a>
 		    </div>
-		</div>
-		<div id="menu">
-			<button id="table">TABLE</button>
-			<button id="sphere">SPHERE</button>
-			<button id="helix">HELIX</button>
-			<button id="grid">GRID</button>
-		</div>
+		<!--
+		<div class="col-lg-4 col-sm-6">
+		    -->
+			<div class = "row">
+			    <a href="#" class="portfolio-box">
+				<img src="img/portfolio/zjzd.png" class="img-responsive" alt="">
+				    <div class="portfolio-box-caption">
+					<div class="portfolio-box-caption-content">
+					    <div class="project-category text-faded">
+						Event Showcase
+					    </div>
+					    <div class="project-name">
+						Zijing Basketball Games
+					    </div>
+					</div>
+				    </div>
+				</a>
+			</div>
+		    </div>
+		<!--
+		<div class="col-lg-4 col-sm-6">
+		    -->
+		<div class = "col-xs-4">
+                    <a href="#" class="portfolio-box">
+                        <img src="img/portfolio/stream.png" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+				    HTML5 Web Audio
+                                </div>
+                                <div class="project-name">
+				    Tree Hole
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+		<!--
+		<div class="col-lg-4 col-sm-6">
+		    -->
+		<div class = "col-xs-4">
+                    <a href="#" class="portfolio-box">
+                        <img src="img/portfolio/bye.png" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+				    Weixin Dev
+                                </div>
+                                <div class="project-name">
+				    Tsinghua Graduation 2015
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <h2 class="section-heading">About Me</h2>
+		    <img class = "avatar" src = "./img/profile/title.png"/>
+                    <hr class="primary">
+                    <p>Undergraduate in School of Software, Tsinghua Univ, Beijing, China</p>
+		    <p>Tech enthusiast</p>
+		    <p>Maroon 5 fan</p>
+		    <p>Addicted to Web Dev, *nix guy</p>
+                </div>
+                <div class="col-lg-4 col-lg-offset-2 text-center">
+                    <i class="fa fa-phone fa-3x wow bounceIn"></i>
+                    <p>+86 13718855159</p>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <i class="fa fa-envelope-o fa-3x wow bounceIn" data-wow-delay=".1s"></i>
+                    <p><a href="mailto:siantlords@gmail.com">siantlords@gmail.com</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="js/jquery.easing.min.js"></script>
+    <script src="js/jquery.fittext.js"></script>
+    <script src="js/wow.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="js/creative.js"></script>
+
+</body>
 
-		<script>
-
-			var table = [
-["清华南都",299524,1540,0.0051,107, 5 ,2 ],
-["刺猬公社",22177,91,0.0041,2302, 1, 2],
-["新闻传播学研",15708,78,0.005,3746, 1, 4],
-["清华研读间",10545,65,0.0062,4989, 4, 1],
-["清华美郡",5342,27,0.0051,7538, 2, 5],
-["新清华学堂",3272,3,0.0009,13068, 5, 4],
-["清华附小",1397,7,0.005,16853, 2, 3],
-["清华EMBA",1374,2,0.0015,18800, 4, 2],
-["清华金融评论",1358,4,0.0029,19777, 4, 4],
-["清华MBA",1336,4,0.003,16976, 4, 5],
-["清华一附院",870,12,0.0138,18476, 3, 4],
-["清华钓具",665,10,0.015,18419, 3, 1],
-["清华南都",495,2,0.004,33153, 5, 6],
-["清华就业",472,0,0,31195, 2, 2],
-["新媒体指数",287,2,0.007,36586, 1, 3],
-["清华阳光",266,2,0.0075,33376, 1, 1],
-["舆媒素",201,1,0.005,37458, 1, 5],
-["清华CIDEG",162,0,0,41535, 4, 3],
-["大华府清华",71,0,0,45753, 5, 3],
-["丰润清华医院",60,0,0,54171, 3, 3],
-["清华家园",51,0,0,49058, 5, 5],
-["淄博清华眼镜",44,0,0,56087, 3, 2],
-["清华健康",32,0,0,57786, 2,1 ],
-["水木清华",27,1,0.037,51125,5 , 1],
-["清华游学",5,0,0,63435, 2, 4]
-
-
-
-			];
-
-			var camera, scene, renderer;
-			var geometry, material, mesh;
-
-			var controls;
-
-			var objects = [];
-			var targets = { table: [], sphere: [], helix: [], grid: [] };
-
-			init();
-			animate();
-
-			function init() {
-
-				camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 3000 );
-				camera.position.z = 1800;
-
-				scene = new THREE.Scene();
-
-				for ( var i = 0; i < table.length; i ++ ) {
-
-					var item = table[ i ];
-
-					var element = document.createElement( 'div' );
-					element.className = 'element';
-					element.style.backgroundColor = 'rgba(0,127,127,' + ( Math.random() * 0.5 + 0.25 ) + ')';
-
-					//var number = document.createElement( 'div' );
-					//number.className = 'number';
-					//number.textContent = i + 1;
-					//element.appendChild( number );
-
-					var symbol = document.createElement( 'div' );
-					symbol.className = 'symbol';
-					symbol.textContent = item[ 0 ];
-					element.appendChild( symbol );
-
-					var details = document.createElement( 'div' );
-					details.className = 'details';
-					details.innerHTML = item[ 1 ] + '<br>' + item[ 2 ] + '<br>' + item[ 3 ] + '<br>' + item[ 4 ];
-					element.appendChild( details );
-
-					var object = new THREE.CSS3DObject( element );
-					object.position.x = Math.random() * 4000 - 2000;
-					object.position.y = Math.random() * 4000 - 2000;
-					object.position.z = Math.random() * 4000 - 2000;
-					scene.add( object );
-
-					objects.push( object );
-
-				}
-
-				// table
-
-				for ( var i = 0; i < objects.length; i ++ ) {
-
-					var item = table[ i ];
-					var object = objects[ i ];
-
-					var object = new THREE.Object3D();
-					object.position.x = ( item[ 5 ] * 160 ) - 800;
-					object.position.y = - ( item[ 6 ] * 200 ) + 800;
-
-					targets.table.push( object );
-
-				}
-
-				// sphere
-
-				var vector = new THREE.Vector3();
-
-				for ( var i = 0, l = objects.length; i < l; i ++ ) {
-
-					var object = objects[ i ];
-
-					var phi = Math.acos( -1 + ( 2 * i ) / l );
-					var theta = Math.sqrt( l * Math.PI ) * phi;
-
-					var object = new THREE.Object3D();
-
-					var radius = 500;
-
-					object.position.x = radius * Math.cos( theta ) * Math.sin( phi );
-					object.position.y = radius * Math.sin( theta ) * Math.sin( phi );
-					object.position.z = radius * Math.cos( phi );
-
-					vector.copy( object.position ).multiplyScalar( 2 );
-
-					object.lookAt( vector );
-
-					targets.sphere.push( object );
-
-				}
-
-				// helix
-
-				var vector = new THREE.Vector3();
-
-				for ( var i = 0, l = objects.length; i < l; i ++ ) {
-
-					var object = objects[ i ];
-
-					var phi = i * 0.275 + Math.PI;
-
-					var object = new THREE.Object3D();
-
-					object.position.x = 600 * Math.sin( phi );
-					object.position.y = - ( i * 20 ) + 100;
-					object.position.z = 600 * Math.cos( phi );
-
-					vector.copy( object.position );
-					vector.x *= 2;
-					vector.z *= 2;
-
-					object.lookAt( vector );
-
-					targets.helix.push( object );
-
-				}
-
-				// grid
-
-				for ( var i = 0; i < objects.length; i ++ ) {
-
-					var object = objects[ i ];
-
-					var object = new THREE.Object3D();
-
-					object.position.x = ( ( i % 5 ) * 400 ) - 800;
-					object.position.y = ( - ( Math.floor( i / 5 ) % 5 ) * 400 ) + 800;
-					object.position.z = ( Math.floor( i / 25 ) ) * 1000 - 800;
-
-					targets.grid.push( object );
-
-				}
-
-				//
-
-				renderer = new THREE.CSS3DRenderer();
-				renderer.setSize( window.innerWidth, window.innerHeight );
-				renderer.domElement.style.position = 'absolute';
-				renderer.domElement.style.top = 0;
-				document.getElementById( 'container' ).appendChild( renderer.domElement );
-
-				//
-
-				controls = new THREE.TrackballControls( camera, renderer.domElement );
-				controls.rotateSpeed = 0.5;
-				controls.addEventListener( 'change', render );
-
-				var button = document.getElementById( 'table' );
-				button.addEventListener( 'click', function ( event ) {
-
-					transform( targets.table, 2000 );
-
-				}, false );
-
-				var button = document.getElementById( 'sphere' );
-				button.addEventListener( 'click', function ( event ) {
-
-					transform( targets.sphere, 2000 );
-
-				}, false );
-
-				var button = document.getElementById( 'helix' );
-				button.addEventListener( 'click', function ( event ) {
-
-					transform( targets.helix, 2000 );
-
-				}, false );
-
-				var button = document.getElementById( 'grid' );
-				button.addEventListener( 'click', function ( event ) {
-
-					transform( targets.grid, 2000 );
-
-				}, false );
-
-				transform( targets.table, 5000 );
-
-				//
-
-				window.addEventListener( 'resize', onWindowResize, false );
-
-			}
-
-			function transform( targets, duration ) {
-
-				TWEEN.removeAll();
-
-				for ( var i = 0; i < objects.length; i ++ ) {
-
-					var object = objects[ i ];
-					var target = targets[ i ];
-
-					new TWEEN.Tween( object.position )
-						.to( { x: target.position.x, y: target.position.y, z: target.position.z }, Math.random() * duration + duration )
-						.easing( TWEEN.Easing.Exponential.InOut )
-						.start();
-
-					new TWEEN.Tween( object.rotation )
-						.to( { x: target.rotation.x, y: target.rotation.y, z: target.rotation.z }, Math.random() * duration + duration )
-						.easing( TWEEN.Easing.Exponential.InOut )
-						.start();
-
-				}
-
-				new TWEEN.Tween( this )
-					.to( {}, duration * 2 )
-					.onUpdate( render )
-					.start();
-
-			}
-
-			function onWindowResize() {
-
-				camera.aspect = window.innerWidth / window.innerHeight;
-				camera.updateProjectionMatrix();
-
-				renderer.setSize( window.innerWidth, window.innerHeight );
-
-			}
-
-			function animate() {
-
-				requestAnimationFrame( animate );
-
-				TWEEN.update();
-				controls.update();
-
-			}
-
-			function render() {
-
-				renderer.render( scene, camera );
-
-			}
-
-		</script>
-	</body>
 </html>
