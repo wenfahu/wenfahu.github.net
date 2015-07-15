@@ -11,7 +11,14 @@
     
       .thumbnail img {
 	width: 100%;
+	transition: all .2s ease-in-out;
       }
+      .thumbnail img:hover{
+	  scale: 150%;
+	  overflow:hidden;
+	  transform: scale(1.1);
+      }
+
   </style>
   <link rel = "stylesheet" type = "text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <link rel = "stylesheet" type = "text/css" href = "https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
