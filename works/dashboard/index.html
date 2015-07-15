@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>DashBoard</title>
+  <style>
+
+      .item{
+	  margin-top:20px;
+      }
+    
+      .thumbnail img {
+	width: 100%;
+      }
+  </style>
+  <link rel = "stylesheet" type = "text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel = "stylesheet" type = "text/css" href = "https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+  <!--<script src="https://code.jquery.com/jquery-1.10.2.js"></script>-->
+  <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+  <script src = "http://imagesloaded.desandro.com/imagesloaded.pkgd.min.js"></script>
+      <!--<script src = "http://imagesloaded.desandro.com/imagesloaded.pkgd.js"></script>-->
+  <script src = "https://cdnjs.cloudflare.com/ajax/libs/masonry/3.3.1/masonry.pkgd.min.js"> </script>
+  <script src = "https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"> </script>
+  <!--
+  <script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
+  -->
+</head>
+<body>
+ 
+<div id="images"></div>
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">Valentine's Day</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+           
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+<div class = "row masonry-container"></div>
+<script type = "text/template" class = "template">
+    <div class = "col-md-4 col-sm-6 item">
+	<a id = "imgs" data-fancybox-group = "gallary" href = <%= url %> title = <%= title %> >
+	    <div class = "thumbnail">
+		<img src = <%= url %> />
+		<div class = "caption">
+		    <h3><%= title %></h3>
+		</div>
+	    </div>
+	</a>
+	<input class = "form-control" type = "text"/>
+    </div>
+</script>
+ 
+<script src = "test.js"></script>
+<script>
+(function() {
+    $('a#imgs')
+    	.attr('rel', 'gallary')
+    	.fancybox({
+    	'transitionIn'	:	'elastic',
+		'transitionOut'	:	'elastic',
+		'speedIn'		:	600, 
+		'speedOut'		:	200, 
+		'overlayShow'	:	false,
+		'hideOnContentClick': true,
+		'autoScale' : true,
+		fitToView : false,
+		'autoDimensions': true,
+
+		helpers: {
+			title:{
+				type: 'over'
+			}
+		},
+		
+		beforeShow: function(){
+			this.width = 800;
+			this.height = 600;
+		}
+
+    });
+})();
+</script>
+ 
+</body>
+</html>
