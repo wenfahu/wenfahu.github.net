@@ -8,8 +8,9 @@ function loadImgs(num_of_page){
 	  {
 	      method: 'flickr.photos.search',
 	      tags: "couple",
+	      tag_mode: 'any',
 	      page: num_of_page,
-	      api_key: 'c77bd2c51d5149cb7e72f126dbd5f2d1',
+	      api_key: '6e721dcec7584a0a5a2bd6d9fff864cd',
 	      per_page: 30,
 	      format: 'json'
 	  } 
