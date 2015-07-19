@@ -1,0 +1,164 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+        <link rel="stylesheet" href="css/normalize.min.css">
+        <link rel="stylesheet" href="css/main.css">
+
+        <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.10.0/react.js"></script>
+	
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.10.0/JSXTransformer.js"></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js'></script>
+	<script src='https://cdn.firebase.com/js/client/1.0.15/firebase.js'></script>
+	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <div class="header-container">
+            <header class="wrapper clearfix">
+                <h1 class="title">IChat</h1>
+            </header>
+        </div>
+
+        <div class="main-container">
+            <div class="main wrapper clearfix">
+
+                <article>
+
+		    <div id = "chat-app">
+		    </div>
+
+                </article>
+
+
+            </div> <!-- #main -->
+        </div> <!-- #main-container -->
+
+        <div class="footer-container">
+            <footer class="wrapper">
+                <h3>〆(・∀・＠)</h3>
+            </footer>
+        </div>
+
+
+      
+      <script type = "text/jsx">
+      /** @jsx React.DOM */
+              var firebase = new Firebase('https://glaring-fire-2988.firebaseio.com/');
+        var myDataRef = firebase.child('chats');
+
+        var MsgBox = React.createClass({
+        handleMsgSubmit: function(msg) {
+          myDataRef.push(msg);
+        },
+        getInitialState: function() {
+          return {data: {}};
+        },
+        componentWillMount: function() {
+          myDataRef.on('child_added', function(snapshot) {
+            var newData = {};
+            newData[snapshot.name()] = snapshot.val();
+            this.setState({data: _.extend(this.state.data, newData)});
+        var bot = $('#content-list')[0];
+        bot.scrollTop = bot.scrollHeight + '';
+          }, this);
+          myDataRef.on('child_removed', function(snapshot) {
+            this.setState({data: _.omit(this.state.data, snapshot.name())});
+          }, this);
+        },
+        render: function() {
+          return (
+            <div className="msgBox pure-u-1">
+              <h2>Messages</h2>
+              <MsgList data={this.state.data} />
+              <MsgForm 
+                onMsgSubmit={this.handleMsgSubmit}
+              />
+            </div>
+          );
+        }
+      });
+      
+      var MsgList = React.createClass({
+        render: function() {
+          var msgNodes = _.map(this.props.data, function (msg) {
+            return <Msg author={msg.author}>{msg.text}</Msg>;
+          });
+          return (
+            <div id ="content-list">
+              {msgNodes}
+            </div>
+          );
+        }
+      });
+
+//      var NameForm = React.createClass({
+//    var author = this.
+      
+      var MsgForm = React.createClass({
+        handleSubmit: function() {
+          var author = this.refs.author.getDOMNode().value.trim();
+          var text = this.refs.text.getDOMNode().value.trim();
+          if (!text || !author) {
+            return false;
+          }
+          this.props.onMsgSubmit({author: author, text: text});
+          this.refs.text.getDOMNode().value = '';
+          return false;
+        },
+        render: function() {
+          return (
+            <form id = "msgForm" className="pure-form" onSubmit={this.handleSubmit}>
+              <fieldset>
+          <legend></legend>
+          <div className = "pure-g">
+              <div className = "pure-u-3-4 pure-u-md-1-2">
+              <input type="text" className = "pure-input-rounded pure-u-23-24" placeholder="Say something..." ref="text"/>
+              </div>
+              <div className = "pure-u-1-4 pure-u-md-1-2">
+              <input type="submit" value="Post" className="pure-u-20-24 pure-button pure-button-primary"/>
+              </div>
+          </div>
+              </fieldset>
+                <input type="text" placeholder="Your name" ref="author" required/>
+            </form>
+          );
+        }
+      });
+      
+      var Msg = React.createClass({
+        render: function() {
+          return (
+            <div className="msg">
+              <span className="pure-u-1-8">{this.props.author}:</span>
+              <span className="text pure-u-7-8">{this.props.children}</span>
+            </div>
+          );
+        }
+      });
+      
+      React.renderComponent(
+        <MsgBox />,
+        document.getElementById('chat-app')
+      );
+      </script>
+      
+
+    </body>
+</html>
