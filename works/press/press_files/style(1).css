@@ -1,0 +1,48 @@
+#head {
+    position:fixed;
+    font-family:'Microsoft New Tai Lue';
+    font-size:2em;
+    color:gray;
+    background-color:none;
+    text-align:center;
+    left:38%;
+}
+
+#game_field {
+    background: -webkit-gradient(linear, 0% 0%, 100% 100%, from(#17BFC2), to(#FF5151));
+    width:800px;
+    min-height:400px;
+    background-color:#6D6968;
+    z-index:1;
+    position:fixed;
+    top:22%;
+    left:28%;
+    opacity:0.7;
+    overflow:hidden;
+}
+
+#tips {
+    position:fixed;
+    font-family:'Microsoft New Tai Lue';
+    font-size:1.6em;
+    background-color:none;
+    text-align:center;
+    left:33%;
+    top:65%;
+}
+
+#foot {
+    position:fixed;
+    font-family:'Microsoft New Tai Lue';
+    font-size:1.5em;
+    color:gray;
+    background-color:none;
+    text-align:center;
+    left:35%;
+    top:90%;
+}
+
+#body {
+    min-width:800px;
+    min-height:500px;
+}
